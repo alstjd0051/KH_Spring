@@ -118,7 +118,20 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency> 
+		
+		<!-- 
+			#5. lombok
+			1. ide에 lombok.jar 설치
+			2. project에서 의존추가
+		 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
+		</dependency>	
+		       
 	</dependencies>
     <build>
         <plugins>

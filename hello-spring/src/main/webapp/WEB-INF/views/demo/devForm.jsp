@@ -72,7 +72,16 @@ div#demo-container{
 	</form>
 	<!-- 전송버튼  -->
 	<div class="list-group">
-	  <button type="button" onclick="dev1();" class="list-group-item list-group-item-action">파라미터 핸들링 - HttpServletRequest</button>
+	  <button type="button" onclick="submitDev('dev1');" class="list-group-item list-group-item-action">파라미터 핸들링 - HttpServletRequest</button>
+	  <button type="button" onclick="submitDev('dev2');" class="list-group-item list-group-item-action">@RequestParam</button>
 	</div>
 </div>
+<script>
+function submitDev(id){
+	var $devFrm = $("#devFrm");
+	$devFrm
+		.attr("action", `${pageContext.request.contextPath}/demo/\${id}.do`)
+		.submit();
+}
+</script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

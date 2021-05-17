@@ -122,7 +122,7 @@
 		
 		<!-- 
 			#5. lombok
-			1. ide에 lombok.jar 설치
+			1. ide에 lombok.jar
 			2. project에서 의존추가
 		 -->
 		<dependency>
