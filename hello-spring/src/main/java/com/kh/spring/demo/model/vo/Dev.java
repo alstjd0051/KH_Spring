@@ -12,12 +12,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Dev {
-
+	
 	private int no;
 	private String name;
 	private int career;
 	private String email;
 	private String gender;
 	private String[] lang;
-
+	
 }
