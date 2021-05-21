@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @SessionAttributes({"loginMember", "next"})
 public class MemberController {
-	
+
 	//private static final Logger log = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
@@ -111,6 +111,7 @@ public class MemberController {
 			// 로그인 실패
 			redirectAttr.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀립니다.");
 		}
+		
 		//사용한 next값은 제거
 		model.addAttribute("next", null);
 		
@@ -130,6 +131,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 }
+
 
 
 
