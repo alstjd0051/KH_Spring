@@ -14,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,7 +53,7 @@ import com.kh.spring.demo.model.vo.Dev;
 
  * @ModelAttribute : model속성에 대한 getter
  * @SessionAttribute : session속성에 대한 getter
- * SessionStatus: @SessionAttribute로 등록된 속성에 대하여 사용완료(complete)처리
+ * SessionStatus: @SessionAttributes로 등록된 속성에 대하여 사용완료(complete)처리
  * 
  * Command객체 : http요청 파라미터를 커맨드객체에 저장한 VO객체
  * @Valid 커맨드객체 유효성 검사용
@@ -221,9 +223,58 @@ public class DemoController {
 		return "demo/devList";
 	}
 	
+//	@RequestMapping(value = "/demo/updateDev.do", method = RequestMethod.GET)
+	@GetMapping("/updateDev.do")
+	public String updateDev(Model model, @RequestParam(name = "no", required = true) int no) {
+		try {
+			//1. 업무로직 
+			Dev dev = demoService.selectOneDev(no);
+			if(dev == null)
+				throw new IllegalArgumentException("존재하지 않는 개발자 정보 : " + no);
+			log.info("dev = {}", dev);
+			//2. jsp 위임
+			model.addAttribute("dev", dev);
+		} catch(Exception e){
+			log.error("Dev 수정페이지 오류!", e);
+			throw e;
+		}
+		return "demo/devUpdateForm";
+	}
+
+//	@RequestMapping(value = "/demo/updateDev.do", method = RequestMethod.POST)
+	@PostMapping("/updateDev.do")
+	public String updateDev(@ModelAttribute Dev dev, RedirectAttributes redirectAttr) {
+		log.info("수정요청 dev = {}", dev);
+		try {
+			//1. 업무로직
+			int result = demoService.updateDev(dev);
+			if(result == 0)
+				throw new IllegalArgumentException("존재하지 않는 개발자 정보 : " + dev.getNo());
+			
+			//2. 사용자피드백 & 리다이렉트
+			redirectAttr.addFlashAttribute("msg", "개발자 정보 수정 성공!");
+		} catch(Exception e) {
+			log.error("개발자 정보 수정 오류!", e);
+			throw e;
+		}
+		return "redirect:/demo/devList.do";
+	}
+	
+	@PostMapping("/deleteDev.do")
+	public String deleteDev(@RequestParam int no, RedirectAttributes redirectAttr) {
+		try {
+			//1. 업무로직
+			int result = demoService.deleteDev(no);
+			//2. 사용자피드백 
+			redirectAttr.addFlashAttribute("msg", "개발자 정보 삭제 성공!");
+		} catch(Exception e) {
+			log.error("개발자 정보 삭제 오류!", e);
+			throw e;
+		}
+		return "redirect:/demo/devList.do";
+	}
 	
 }
-
 
 
 
