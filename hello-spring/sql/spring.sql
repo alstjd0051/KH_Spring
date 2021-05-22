@@ -59,9 +59,14 @@ from
     member;
     
 
+update
+    member
+set 
+    password = '1234'
+where
+     id ='honggd';
 
-
-
+commit;
 
 
 
