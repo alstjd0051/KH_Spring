@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,8 +24,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
@@ -204,6 +209,40 @@ public class MemberController {
 		return mav;
 	}
 	
+	@PostMapping("/memberUpdate.do")
+	public ModelAndView memberUpdate(
+								@ModelAttribute Member member,
+								@ModelAttribute("loginMember") Member loginMember,
+								ModelAndView mav, 
+								HttpServletRequest request
+							) {
+		log.debug("member = {}", member);
+		log.debug("loginMember = {}", loginMember);
+		
+		try {
+			//1. 업무로직
+			int result = memberService.updateMember(member);
+			
+			//2. 사용자 피드백 & 리다이렉트
+//			mav.setViewName("redirect:/member/memberDetail.do");
+			
+			//리다이렉트시 자동생성되는 queryString 방지
+			RedirectView view = new RedirectView(request.getContextPath() + "/member/memberDetail.do");
+			view.setExposeModelAttributes(false);
+			mav.setView(view);
+			
+			
+			//ModelAndView와 RedirectAttributes 충돌시 FlashMap을 직접 사용
+			FlashMap flashMap = RequestContextUtils.getOutputFlashMap(request);
+			flashMap.put("msg", "사용자 정보 수정 성공!!!!!!");
+//			redirectAttr.addFlashAttribute("msg", "사용자 정보 수정 성공!");
+			
+		} catch (Exception e) {
+			log.error("사용자 정보 수정 오류!", e);
+			throw e;
+		}
+		return mav;
+	}
 	
 }
 

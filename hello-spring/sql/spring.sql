@@ -58,7 +58,14 @@ select
 from
     member;
     
-
+update 
+    member
+set
+    password = '$2a$10$LrjcOx/0ZjEsfwBLajFgGu/Nw5/cwiiPv0jnAs0ZtGmcVbpV5rxaS'
+where
+    id = 'qwerty';
+    
+commit;
 
 
 
