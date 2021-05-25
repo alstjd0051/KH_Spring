@@ -1,4 +1,4 @@
-package com.kh.spring.common.aop;
+﻿package com.kh.spring.common.aop;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -7,10 +7,8 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 /**
  * Advice의 다섯가지타입
@@ -23,8 +21,8 @@ import org.springframework.stereotype.Component;
  * 
  *
  */
-@Component
-@Aspect
+//@Component
+//@Aspect
 public class AdviceSignature {
 	private Logger logger = Logger.getLogger(AdviceSignature.class);
 	

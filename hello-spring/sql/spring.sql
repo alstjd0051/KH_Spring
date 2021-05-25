@@ -85,6 +85,7 @@ create table memo(
 
 create sequence seq_memo_no;
 
+select * from memo;
 
 
 
