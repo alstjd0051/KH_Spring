@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("/memo")
 public class MemoController {
-
+	
 	@Autowired
 	private MemoService memoService;
 
@@ -27,25 +27,25 @@ public class MemoController {
 	public ModelAndView selectMemoList(ModelAndView mav) {
 		log.debug("memoService = {}", memoService.getClass());
 		// MemoServiceImpl
-
-		// 1. 업무로직 : memo목록 조회
+		
+		//1. 업무로직 : memo목록 조회
 		List<Memo> list = memoService.selectMemoList();
 		log.debug("list = {}", list);
-		// 2. jsp에 위임
+		//2. jsp에 위임
 		mav.addObject("list", list);
-
+		
 		mav.setViewName("memo/memo");
 		return mav;
 	}
-
+	
 	@PostMapping("/insertMemo.do")
 	public String insertMemo(Memo memo, RedirectAttributes redirectAttr) {
 		log.debug("memo = {}", memo);
-		// 1.업무로직
+		//1.업무로직
 		int result = memoService.insertMemo(memo);
-		// 2.사용자피드백
+		//2.사용자피드백
 		redirectAttr.addFlashAttribute("msg", "메모 등록 성공");
 		return "redirect:/memo/memo.do";
 	}
-
+	
 }
