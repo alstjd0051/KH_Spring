@@ -223,7 +223,8 @@ order by
     no desc;
 
 
-
+select * from board order by no desc;
+select * from attachment;
 
 
 
