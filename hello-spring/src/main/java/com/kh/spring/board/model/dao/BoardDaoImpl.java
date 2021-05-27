@@ -60,9 +60,11 @@ public class BoardDaoImpl implements BoardDao {
 	public BoardExt selectOneBoardCollection(int no) {
 		return session.selectOne("board.selectOneBoardCollection", no);
 	}
-	
-	
-	
+
+	@Override
+	public Attachment selectOneAttachment(int no) {
+		return session.selectOne("board.selectOneAttachment", no);
+	}
 	
 	
 	

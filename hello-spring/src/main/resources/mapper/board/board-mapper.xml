@@ -75,7 +75,7 @@
 			board_no = #{boardNo}
 	</select>
 	<resultMap type="attachment" id="attachVoMap">
-		<result column="status" property="status" javaType="boolean" jdbcType="CHAR"/>
+		<result column="status" property="status" javaType="_boolean" jdbcType="CHAR"/>
 	</resultMap>
 	<select id="selectOneBoardCollection" resultMap="boardCollectionMap">
 		select 
@@ -111,6 +111,15 @@
 			<result column="status" property="status" typeHandler="booleanYnTypeHandler"/>
 		</collection>
 	</resultMap>
+	
+	<select id="selectOneAttachment" resultMap="attachVoMap">
+		select
+			*
+		from
+			attachment
+		where 
+			no = #{no}
+	</select>
 </mapper>
 
 
