@@ -11,9 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
 
 	@GetMapping("/")
-	@ResponseBody
 	public String home() {
 		log.debug("/home 요청!");
-		return "hello, spring";
+		return "forward:index.jsp";
 	}
 }
