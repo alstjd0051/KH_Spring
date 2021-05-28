@@ -21,22 +21,24 @@ public class EnumTest {
 	}
 
 	/**
-	 * enumµµ ³»ºÎ°ªÀ» °®°í Ã³¸®ÇÒ ¼ö ÀÖ´Ù.
+	 * enumë„ ë‚´ë¶€ê°’ì„ ê°–ê³  ì²˜ë¦¬í•  ìˆ˜ ìˆë‹¤.
 	 * 
 	 * MenuType.KR -> "kr"
 	 * 
 	 */
 	private void test3() {
-		Item item1 = new Item("Á¨Æ²¸ó½ºÅÍ", ItemType.GLASSES);
-		Item item2 = new Item("¸£¶óº¸", ItemType.PERFUME);
-		Item item3 = new Item("ÂüÁ¸", ItemType.COSMETIC);
+		Item item1 = new Item("ì  í‹€ëª¬ìŠ¤í„°", ItemType.GLASSES);
+		Item item2 = new Item("ë¥´ë¼ë³´", ItemType.PERFUME);
+		Item item3 = new Item("ì°¸ì¡´", ItemType.COSMETIC);
 		
+		//getter
 		System.out.println(item1.getItemType().getValue());
 		System.out.println(item2.getItemType().getValue());
 		System.out.println(item3.getItemType().getValue());
 		
-		//{"name":"Á¨Æ²¸ó½ºÅÍ", "itemType":123}
-		Item item4 = new Item("Á¨Æ²¸ó½ºÅÍ", ItemType.valueOf(123));
+		//setter
+		//{"name":"ì  í‹€ëª¬ìŠ¤í„°", "itemType":123}
+		Item item4 = new Item("ì  í‹€ëª¬ìŠ¤í„°", ItemType.valueOf(123));
 		System.out.println(item4);
 		
 	}
@@ -50,14 +52,14 @@ public class EnumTest {
 	
 
 	/**
-	 * enumÀº enum¸í.»ó¼ö¸íÀ¸·Î Á¢±ÙÇÑ´Ù.
-	 * - namespace¸¦ ÅëÇØ¼­¸¸ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-	 * - °ª¿¡ ´ëÇÑ Å¸ÀÔ°ËÁõÀÌ °¡´ÉÇÏ´Ù.
-	 * - ÄÚµå°¡µ¶¼º, ¿ÀÅ¸¿¹¹æµîÀÇ ±â´É
+	 * enumì€ enumëª….ìƒìˆ˜ëª…ìœ¼ë¡œ ì ‘ê·¼í•œë‹¤.
+	 * - namespaceë¥¼ í†µí•´ì„œë§Œ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+	 * - ê°’ì— ëŒ€í•œ íƒ€ì…ê²€ì¦ì´ ê°€ëŠ¥í•˜ë‹¤.
+	 * - ì½”ë“œê°€ë…ì„±, ì˜¤íƒ€ì˜ˆë°©ë“±ì˜ ê¸°ëŠ¥
 	 */
 	private void test2() {
-		Car car1 = new Car("¼Ò³ªÅ¸", CarColor.BLACK);
-		Car car2 = new Car("±×·£Á®", CarColor.WHITE);
+		Car car1 = new Car("ì†Œë‚˜íƒ€", CarColor.BLACK);
+		Car car2 = new Car("ê·¸ëœì ¸", CarColor.WHITE);
 		System.out.println(car1);
 		System.out.println(car2);
 	}
@@ -70,13 +72,13 @@ public class EnumTest {
 	}
 	
 	/**
-	 * »ó¼öÀÇ ÇÑ°è
-	 *  - °ª¿¡ ´ëÇÑ °ËÁõ±â´ÉÀÌ ¾ø´Ù.
-	 *  - ÄÚµå °¡µ¶¼º, Àü´Ş·ÂÀ» ³ô¿©ÁØ´Ù.
+	 * ìƒìˆ˜ì˜ í•œê³„
+	 *  - ê°’ì— ëŒ€í•œ ê²€ì¦ê¸°ëŠ¥ì´ ì—†ë‹¤.
+	 *  - ì½”ë“œ ê°€ë…ì„±, ì „ë‹¬ë ¥ì„ ë†’ì—¬ì¤€ë‹¤.
 	 */
 	private void test1() {
-		Person p1 = new Person("È«±æµ¿", COLOR_BLACK);
-		Person p2 = new Person("½Å»çÀÓ´ç", ITEM_INNER);
+		Person p1 = new Person("í™ê¸¸ë™", COLOR_BLACK);
+		Person p2 = new Person("ì‹ ì‚¬ì„ë‹¹", ITEM_INNER);
 		System.out.println(p1);
 		System.out.println(p2);
 	}
