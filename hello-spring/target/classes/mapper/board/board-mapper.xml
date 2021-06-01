@@ -120,15 +120,6 @@
 		where 
 			no = #{no}
 	</select>
-	
-	<select id="searchTitle" resultType="board">
-		select 
-			*
-		from 
-			board
-		where
-			title like '%' || #{searchTitle} || '%'
-	</select>
 </mapper>
 
 

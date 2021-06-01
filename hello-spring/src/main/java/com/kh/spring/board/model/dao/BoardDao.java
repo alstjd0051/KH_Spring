@@ -27,6 +27,4 @@ public interface BoardDao {
 
 	Attachment selectOneAttachment(int no);
 
-	List<Board> searchTitle(String searchTitle);
-
 }
