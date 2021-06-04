@@ -4,7 +4,7 @@ public class LgRemoteControl implements RemoteControl {
 
 	@Override
 	public void changeChannel(int no) {
-		System.out.println("Life is Good! Ã¤³ÎÀ» " + no + "¹øÀ¸·Î º¯°æÇÕ´Ï´Ù.");
+		System.out.println("Life is Good! ì±„ë„ì„ " + no + "ë²ˆìœ¼ë¡œ ë³€ê²½í•©ë‹ˆë‹¤.");
 	}
 
 }

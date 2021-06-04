@@ -29,7 +29,8 @@ public class TvBeanMain {
 		sstv.powerOn();
 		
 		lgtv1.changeChannel(3);
-		sstv.changeChannel(3);
+		sstv.changeChannel(10);
+		
 	}
 
 }

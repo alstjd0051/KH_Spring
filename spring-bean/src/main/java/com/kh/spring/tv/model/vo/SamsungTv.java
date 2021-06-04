@@ -1,26 +1,24 @@
 package com.kh.spring.tv.model.vo;
 
 public class SamsungTv implements Tv {
-
+	
 	private RemoteControl remocon;
-
+	
 	public void setRemocon(RemoteControl remocon) {
 		this.remocon = remocon;
 	}
 
 	public SamsungTv() {
-		System.out.println("SamsungTv°´Ã¼¸¦ »ı¼ºÇß½À´Ï´Ù.");
+		System.out.println("SamsungTvê°ì²´ë¥¼ ìƒì„±í–ˆìŠµë‹ˆë‹¤.");
 	}
-
+	
 	@Override
 	public void powerOn() {
-		System.out.println("SamsungTvÀÇ Àü¿øÀ» Ä×½À´Ï´Ù.");
+		System.out.println("SamsungTvì˜ ì „ì›ì„ ì¼°ìŠµë‹ˆë‹¤.");
 	}
 
 	public void changeChannel(int no) {
 		this.remocon.changeChannel(no);
-		
 	}
-
 
 }

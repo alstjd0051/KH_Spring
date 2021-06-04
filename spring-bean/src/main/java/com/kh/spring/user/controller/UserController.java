@@ -9,33 +9,32 @@ import com.kh.spring.user.model.service.UserService;
 
 @Component
 @Scope("prototype")
-@Lazy // lazy-init="ture"客 悼老
+@Lazy // lazy-init="true"鞕� 霃欖澕
 public class UserController {
-
+	
 	/**
-	 * @Autowired 荤侩过
-	 * 1. filed
+	 * 1.field
 	 */
-//	@Autowired
+	//@Autowired
 	private UserService userService;
 	
 	/**
 	 * 2. setter
-	 * @param id
+	 * 
 	 */
 //	@Autowired
 	public void setUserService(UserService userService) {
-		this.userService= userService;
+		this.userService = userService;
 	}
 	
-	/**
-	 * 3. 积己磊
-	 * @param id
-	 */
+	@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
+	
+	
 	public void getUserDetail(String id) {
 		userService.getUserDetail(id);
 	}
+	
 }

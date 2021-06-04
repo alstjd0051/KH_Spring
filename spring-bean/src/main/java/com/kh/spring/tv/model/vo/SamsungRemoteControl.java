@@ -4,7 +4,7 @@ public class SamsungRemoteControl implements RemoteControl {
 
 	@Override
 	public void changeChannel(int no) {
-		System.out.println("¼¼°è1µî ¸®¸ğÄÁ, Ã¤³ÎÀ» " + no + "·Î º¯°æÇÕ´Ï´Ù.");
+		System.out.println("ì„¸ê³„1ë“± ë¦¬ëª¨ì½˜, ì±„ë„ì„ " + no + "ë¡œ ë³€ê²½í•©ë‹ˆë‹¤.");
 	}
 
 }
