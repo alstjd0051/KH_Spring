@@ -16,6 +16,8 @@ create table authority (
     constraint fk_authority_member_id foreign key(id) references member(id)
 );
 
+select * from authority;
+
 insert into authority values('qwerty', 'ROLE_USER');
 insert into authority values('honggd', 'ROLE_USER');
 insert into authority values('admin', 'ROLE_USER');
@@ -42,3 +44,14 @@ where
     id = 'admin';
 
 
+-- security의 remember-me 사용을 위한 table persistent_login 생성
+create table persistent_logins(
+    username varchar2(64) not null,
+    series varchar2(64) PRIMARY key,
+    token varchar2(64) not null, --username, password, expiry time에 대한 hashing값
+    last_used TIMESTAMP not null
+);
+
+select *
+from 
+persistent_logins;

@@ -1,11 +1,11 @@
 --===============================
 -- 관리자 계정
 --===============================
-create user spring
-identified by spring
+create user security
+identified by security
 default tablespace users;
 
-grant connect, resource to spring;
+grant connect, resource to security;
 
 --===============================
 -- spring 계정
@@ -28,6 +28,7 @@ select
     *
 from
     dev;
+    
     
 
 --회원테이블 관련

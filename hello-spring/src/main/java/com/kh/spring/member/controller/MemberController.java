@@ -69,7 +69,6 @@ import lombok.extern.slf4j.Slf4j;
  * - 이 메소드안에서 model속성 setter로 사용
  * - 현재 controller클래스의 모든 handler에 앞서 실행되며, 모든 요청에서 해당 데이터 접근 가능
  * 
- * 
  */
 @Controller
 @RequestMapping("/member")
