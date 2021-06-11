@@ -15,7 +15,7 @@
 			#{lang}
 		)
 	</insert>
-	<select id="selectDevList" resultType="dev">
+	<select id="selectDevList" resultMap="devVoMap">
 		select
 			*
 		from

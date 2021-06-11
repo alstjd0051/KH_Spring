@@ -19,4 +19,8 @@ public class WebsocketController {
 	public void sockjs() {
 		
 	}
+	@GetMapping("/stomp.do")
+	public void stomp() {
+		
+	}
 }

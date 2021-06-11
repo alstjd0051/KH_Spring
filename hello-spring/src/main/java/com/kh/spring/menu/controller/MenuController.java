@@ -34,7 +34,7 @@ public class MenuController {
 	@GetMapping(
 			value = "/selectMenuList.do",
 			produces = MediaType.APPLICATION_JSON_UTF8_VALUE
-			)
+		)
 	@ResponseBody
 	public String selectMenuList() throws IOException {
 		try {

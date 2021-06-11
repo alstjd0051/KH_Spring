@@ -47,7 +47,7 @@ public class WebsocketHandler extends TextWebSocketHandler {
 	
 	
 	/**
-	 * websocket연결 해제후 호출
+	 * web socket연결 해제후 호출
 	 */
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {

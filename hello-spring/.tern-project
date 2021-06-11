@@ -7,7 +7,16 @@
     "outline": {
       
     },
+    "jscs": {
+      
+    },
+    "browser-extension": {
+      
+    },
     "bootstrap": {
+      
+    },
+    "jquery-extension": {
       
     }
   },

@@ -24,10 +24,25 @@ const url = menuRestOrigin + menuRestContextPath;
     </div>
     <div class="result" id="menus-result"></div>
     <script>
+    /*
+    	SOP Same Origin Policy 동일근원정책
+		- origin : protocol + host + port 
+		 		   http://localhost:9090   ---> http://localhost:10000
+		- 비동기요청시 현재페이지 origin과 동일 origin으로만 요청할 수 있게 제한함.
+
+		CORS Policy Cross Origin Resource Sharing
+		- 조건: 응답header에 Access-Control-Allow-Origin : 나의 origin 이 설정되어 있을것.
+    	
+    
+    	Access to XMLHttpRequest at 'http://localhost:10000/springboot/menus' 
+    	from origin 'http://localhost:9090' 
+    	has been blocked by CORS policy: 
+        No 'Access-Control-Allow-Origin' header is present on the requested resource.
+    */
 	$("#btn-menus").click(() => {
 		$.ajax({
-			//url: `\${url}/menus`, // 타 REST server로 직접요청 
-			url : "${pageContext.request.contextPath}/menu/selectMenuList.do",
+			//url: `\${url}/menus`, // 타 REST server로 직접요청
+			url: "${pageContext.request.contextPath}/menu/selectMenuList.do",
 			method: "GET",
 			success(data){
 				console.log(data);
