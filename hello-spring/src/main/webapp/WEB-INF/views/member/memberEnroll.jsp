@@ -79,7 +79,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th>취미</th>
+				<th>취미 </th>
 				<td>
 					<div class="form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" name="hobby" id="hobby0" value="운동"><label class="form-check-label" for="hobby0">운동</label>&nbsp;

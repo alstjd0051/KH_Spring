@@ -32,11 +32,11 @@ public class StompConfig implements WebSocketMessageBrokerConfigurer{
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		//1.SimpleBroker 
 		registry
-			.enableSimpleBroker("/topic", "/bpp");
+			.enableSimpleBroker("/notice");
 		
 		//2.MessageHandler : /app/a --> @MessageMapping("/a")
 		registry
-			.setApplicationDestinationPrefixes("/app");
+			.setApplicationDestinationPrefixes("/admin");
 	}
 
 	
